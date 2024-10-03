@@ -28,6 +28,16 @@
             <td>{{ $pais->pais_nomb }}</td>
             <td>{{ $pais->muni_nomb }}</td>
             <td><span>Actions</span></td>
+            <td>
+              <a href="{{route('pais.edit', $pais->pais_codi)}}"
+              class="btn btn-info"> Edit </a> </li>
+              <form action="{{ route('pais.destroy', $pais->pais_codi) }}"
+              method="POST" style="display:inline-block">
+              @method('delete')
+              @csrf
+              <input class="btn btn-danger" type="submit" value="Delete">
+              </form>
+            </td>
         </tr>
         @endforeach
     </tbody>
